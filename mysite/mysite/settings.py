@@ -23,7 +23,7 @@ load_dotenv(BASE_DIR / ".env")
 # See https://docs.djangoproject.com/en/6.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0o4y+s!6rgv^5b@x!kn0_m6x#ayn)bqw@m+hgf7e6_)%jbvr*e'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'user',
     'core',
 
+    'rest_framework',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -149,6 +150,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# Define where the media files (images, products, etc.) will be stored on your system
+MEDIA_ROOT = BASE_DIR / 'media'
+# Media files (user-uploaded content)
+MEDIA_URL = '/media/'
+
 
 
 # Email

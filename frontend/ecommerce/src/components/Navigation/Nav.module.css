@@ -1,0 +1,18 @@
+.navList {
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    list-style: none;
+    font-weight: 400;
+}
+
+.navList a,
+.navList a:visited {
+    color: var(--color-dark);
+}
+
+.navList a:hover {
+    color: var(--primary-hover);
+}
