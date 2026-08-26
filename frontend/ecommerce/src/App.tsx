@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router"
 import HomePage from "./pages/HomePage"
-import Products from "./pages/Products"
+import Products from "./pages/ProductsPage"
 import ProductDetail from "./pages/ProductDetail"
 import Contact from "./pages/Contact"
 import PrivacyPolicy from "./pages/PrivacyPolicy"
