@@ -3,14 +3,20 @@ import styles from './ProductItem.module.css'
 
 function ProductItem({ product }) {
     return (
-        <li className={styles.productItem}>
+        <li className={styles.productCard}>
             <Link to={`/products/${product.id}`}>
                 <img src={product.image} alt={product.product_name}/>
             </Link>
+            <div className={styles.productInfo}>
+                <div className={styles.productTitle}>
                 <h3>{product.product_name}</h3>
-                <p>£{product.price}</p>
                 <p>{product.description}</p>
-                <p>{product.delivery_info} delivery</p>
+            </div>
+            <div className={styles.price}>
+                <p>£{product.price}</p>
+            </div>
+            </div>
+            
         </li>
     )
 }

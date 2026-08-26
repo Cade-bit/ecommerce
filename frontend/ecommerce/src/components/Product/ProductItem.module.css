@@ -1,4 +1,36 @@
-.productItem img {
-    height: 20rem;
-    width: 20rem;
+.productCard {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding-bottom: 2rem;
+    /* border-radius: var(--nav-border-radius); */
+}
+
+.productInfo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 1rem 1rem 0 1rem;
+}
+
+.productTitle {
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+
+.productCard img {
+    height: 30vw;
+    width: 25rem;
+}
+
+@media (max-width: 768px) {
+    .productCard img {
+        width: 20rem;
+        height: 25rem;
+    }
 }

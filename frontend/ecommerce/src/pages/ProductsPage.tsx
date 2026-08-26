@@ -5,7 +5,12 @@ function Products({products, error}) {
 
     return (
         <main className={styles.main}>
-            <div className={styles.listTitle}>
+            <div className={styles.hero}>
+                <p>Company slogan</p>
+                <h2>Explore the [brand name] collection</h2>
+            </div>
+            <div className={styles.overallProducts}>
+                <div className={styles.listTitle}>
             <h2> Available products: {products.length}</h2>
             </div>
             {error ? (
@@ -17,6 +22,8 @@ function Products({products, error}) {
                 <ProductList products={products}/>
                 </div>
             )}
+            </div>
+            
         </main>
     )
 }
