@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router'
+import { Link, NavLink } from 'react-router'
 import styles from './Nav.module.css'
 import Button from '../Button/Button'
 
@@ -15,7 +15,9 @@ function Nav() {
                 <li>
                     <NavLink to="/contact">Contact</NavLink>
                 </li>
+                <Link to="/login">
                 <Button />
+                </Link>
             </ul>
             
         </div>

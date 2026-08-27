@@ -1,4 +1,4 @@
-function PrivacyPolicy() {
+function PrivacyPolicyPage() {
     return (
         <div>
             
@@ -6,4 +6,4 @@ function PrivacyPolicy() {
     )
 }
 
-export default PrivacyPolicy
+export default PrivacyPolicyPage

@@ -68,6 +68,8 @@ CORS_ALLOWED_ORIGINS = [
 
 ]
 
+AUTH_USER_MODEL = 'user.CustomUser'
+
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [

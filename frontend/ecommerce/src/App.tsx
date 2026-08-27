@@ -2,12 +2,15 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
 import HomePage from "./pages/HomePage";
 import Products from "./pages/ProductsPage";
-import ProductDetail from "./pages/ProductDetailPage";
-import Contact from "./pages/ContactPage";
-import PrivacyPolicy from "./pages/PrivacyPolicyPage";
-import TermsOfService from "./pages/TermsOfServicePage";
 import NavigationLayout from "./components/Navigation/NavigationLayout";
 import PageNotFound from "./pages/PageNotFound";
+import LogInPage from "./pages/LogInPage";
+import RegisterPage from "./pages/RegisterPage";
+import ContactPage from "./pages/ContactPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import TermsOfServicePage from "./pages/TermsOfServicePage";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+
 
 function App() {
   const [products, setProducts] = useState([]);
@@ -46,10 +49,12 @@ function App() {
             path="/products"
             element={<Products products={products} error={error} />}
           ></Route>
-          <Route path="/products/:id" element={<ProductDetail />}></Route>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
-          <Route path="/terms-of-service" element={<TermsOfService />}></Route>
+          <Route path="/products/:id" element={<ProductDetailPage />}></Route>
+          <Route path="/contact" element={<ContactPage />}></Route>
+          <Route path="/login" element={<LogInPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/privacy-policy" element={<PrivacyPolicyPage />}></Route>
+          <Route path="/terms-of-service" element={<TermsOfServicePage />}></Route>
           <Route path="*" element={<PageNotFound />}></Route>
         </Routes>
       </BrowserRouter>

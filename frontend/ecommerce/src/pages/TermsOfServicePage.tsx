@@ -1,4 +1,4 @@
-function TermsOfService() {
+function TermsOfServicePage() {
     return (
         <div>
             
@@ -6,4 +6,4 @@ function TermsOfService() {
     )
 }
 
-export default TermsOfService
+export default TermsOfServicePage

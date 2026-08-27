@@ -11,7 +11,7 @@ type Product = {
     notes: string
 }
 
-function ProductDetail() {
+function ProductDetailPage() {
     const navigate = useNavigate()
     const { id } = useParams()
     const [product, setProduct] = useState<Product | null>(null)
@@ -58,4 +58,4 @@ function ProductDetail() {
     )
 }
 
-export default ProductDetail
+export default ProductDetailPage

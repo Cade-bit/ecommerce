@@ -1,6 +1,7 @@
 import ProductList from "../components/Product/ProductList/ProductList"
 import styles from './ProductsPage.module.css'
 
+
 function Products({products, error}) {
 
     return (
