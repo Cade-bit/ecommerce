@@ -28,6 +28,7 @@
     width: 25rem;
 }
 
+/* Mobile view */
 @media (max-width: 768px) {
     .productCard img {
         width: 20rem;

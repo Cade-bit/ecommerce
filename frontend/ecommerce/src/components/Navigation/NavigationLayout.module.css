@@ -1,11 +1,11 @@
 .navLayout {
-    position: absolute;
+    position: fixed;
+    display: flex;
     top: 0;
     left: 0;
     right: 0;
     margin: 1.25rem 2.5rem 0 2.5rem;
     padding: var(--nav-padding);
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -13,5 +13,5 @@
     background-color: var(--nav-color);
     backdrop-filter: blur(20px);
     height: 60px;
-    z-index: 1;
+    z-index: 1000;
 }

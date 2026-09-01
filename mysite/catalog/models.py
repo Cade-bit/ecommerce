@@ -25,7 +25,8 @@ class SubCategory(models.Model):
     def __str__(self):
         return f'{self.sub_category_name} ({self.category.category_name})'
 
-
+ # Add size and color options
+ #------------------------------------> Product model
 class Product(models.Model):
     product_name = models.CharField(max_length=100, db_index=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)

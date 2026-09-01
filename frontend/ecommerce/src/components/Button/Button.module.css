@@ -6,8 +6,37 @@
     background-color: var(--color-accent);
     color: var(--color-white);
     font-weight: 400;
+    font-family: var(--primary-font);
 }
 
 .button:hover {
-    background-color: var(--primary-hover);
+    background-color: #F3F4F6;
+    color: var(--color-dark);
+}
+
+.secondary {
+    margin-left: 1rem;
+    padding: var(--button-padding);
+    border-radius: var(--button-border-radius);
+    cursor: pointer;
+    background-color: var(--color-white);
+    color: var(--color-white);
+    font-weight: 400;
+    font-family: var(--primary-font);
+}
+
+.formButton {
+    margin-left: 0;
+    width: 100%;
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-border);
+    background-color: var(--color-white);
+    color: var(--color-dark);
+    font-weight: 600;
+}
+
+.formButton:hover {
+    background-color: #F3F4F6 ;
+    
 }

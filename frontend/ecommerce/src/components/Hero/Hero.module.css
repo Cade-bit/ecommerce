@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    height: 80vh;
+    height: 100vh;
 }
 
 .heroText {
@@ -8,10 +8,12 @@
     justify-content: center;
     position: absolute;
     align-items: left;
-    top: 45%;
+    top: 75%;
     left: 5%;
     z-index: 1;
-    color: var(--color-dark)
+    color: var(--color-white);
+    font-size: xx-large;
+    font-weight: 400;
 }
 
 .hero img{

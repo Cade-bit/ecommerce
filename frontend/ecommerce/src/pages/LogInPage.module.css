@@ -1,19 +1,47 @@
 .container {
-    position: absolute;
-    top: 30%;
-    width: 50vw;
-    margin-left: 25vw;
-    text-align: center;
-    background-color: white;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    /* margin-top: 20vh; */
+    /* margin: 20vh 4rem 0 4rem; */
+    margin: 20vh auto 0 auto;
+    width: min(1000px, 90vw);
+    background-color: var(--color-white);
+    border-radius: var(--nav-border-radius);
 }
 
-.card {
+.illustration {
+    column-width: 30rem;
+}
+
+.illustration img {
+    display: block;
+    height: 40rem;
+    width: 100%;
+    max-width: 30rem;
+    border-radius: var(--nav-border-radius);
+}
+
+.loginContainer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.title p {
+    margin-top: 2rem;
+}
+
+.form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: left;
     justify-content: center;
-    height: 50vh;
-    width: 25vw;
-    background-color: gray;
-    
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+        /* height: 60vh; */
+    }
+    .illustration {
+        display: none;
+    }
 }

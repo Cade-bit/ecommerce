@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Stack+Sans+Text:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
 :root {
   /* Colours */
@@ -6,6 +6,7 @@
   --color-accent: #6d8196;
   --color-background: #ffffe3;
   --color-border: #cbcbcb;
+  --color-main-border: #E5E7EB;
   --color-error: #CD1C18;
   --color-dark: #252525;
   --color-white: white;
@@ -27,7 +28,7 @@
 
   /* Text */
   --line-height: 6rem;
-  --primary-font: "Stack Sans Text", sans-serif;
+  --primary-font: "Playfair Display", serif;
 }
 
 /* Nav margin top 1.25rem */
@@ -50,4 +51,8 @@ body {
   /* position: relative; */
   font-family: var(--primary-font);
   background-color: var(--color-border);
+}
+
+body a {
+  color: var(--color-dark)
 }
