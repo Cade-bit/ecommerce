@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core',
 
     'rest_framework',
+    'knox',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -70,6 +71,10 @@ CORS_ALLOWED_ORIGINS = [
 
 AUTH_USER_MODEL = 'user.CustomUser'
 
+AUTHENTICATION_BACKENDS = [
+    'user.auth_backend.EmailAuthBackend',
+]
+
 ROOT_URLCONF = 'mysite.urls'
 
 TEMPLATES = [
@@ -88,6 +93,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'mysite.wsgi.application'
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': ('knox.auth.TokenAuthentication',),
+}
 
 
 # Database

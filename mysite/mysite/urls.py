@@ -28,6 +28,8 @@ urlpatterns = [
     path('', include('orders.urls', namespace='orders')),
     path('', include('core.urls', namespace='core')),
     path('', include('cart.urls', namespace='cart')),
+
+    path('api/auth/', include('knox.urls')),
 ]
 
 urlpatterns += [

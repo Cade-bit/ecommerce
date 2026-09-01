@@ -1,8 +1,8 @@
 import styles from './Button.module.css'
 
-function Button({type}) {
+function Button({type, onClick}) {
     return (
-        <button className={`${styles.button} ${styles[type]}`}>
+        <button onClick={onClick} className={`${styles.button} ${styles[type]}`}>
             Log In
         </button>
     )

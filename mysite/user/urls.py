@@ -6,6 +6,7 @@ from .views import RegisterViewSet
 
 router = DefaultRouter()
 router.register(r'register', views.RegisterViewSet, basename='register')
+router.register(r'login', views.LoginViewSet, basename='login')
 
 app_name = 'user'
 
