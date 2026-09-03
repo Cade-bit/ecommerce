@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router'
 import styles from './Nav.module.css'
-import Button from '../Button/Button'
+import Button from '../Button/Navigational/Button'
+
 
 function Nav() {
     return (
@@ -16,7 +17,7 @@ function Nav() {
                     <NavLink to="/contact">Contact</NavLink>
                 </li>
                 <Link to="/login">
-                <Button />
+                <Button>Login</Button>
                 </Link>
             </ul>
             

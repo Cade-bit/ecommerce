@@ -1,12 +1,12 @@
 import styles from "./LogInPage.module.css";
-import loginIllustration from "../assets/LoginIllustration.png";
+import loginPhoto from "../assets/loginPhoto.jpg";
 import LoginForm from "../components/Forms/LogInForm/LoginForm";
 
 function LogInPage() {
   return (
     <div className={styles.container}>
       <div className={styles.illustration}>
-        <img src={loginIllustration} alt="Login illustration"></img>
+        <img src={loginPhoto} alt="Login photo"></img>
       </div>
       <div className={styles.loginContainer}>
         <div className={styles.title}>

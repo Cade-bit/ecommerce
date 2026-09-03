@@ -1,0 +1,46 @@
+.registerContainer {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    margin: 20vh auto 0 auto;
+    width: min(1000px, 90vw);
+    background-color: var(--color-white);
+    border-radius: var(--nav-border-radius);
+}
+
+.registerIllustration {
+    column-width: 30rem;
+}
+
+.registerIllustration img {
+    display: block;
+    height: 40rem;
+    width: 100%;
+    max-width: 30rem;
+    border-radius: var(--nav-border-radius);
+    object-fit: cover;
+}
+
+.signupContainer {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.signupTitle p{
+    margin-top: 1rem;
+}
+
+.signupForm {
+    margin-top: 4rem;
+    display: flex;
+    text-align: left;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .registerContainer {
+        grid-template-columns: 1fr;
+    }
+    .registerIllustration {
+        display: none;
+    }
+}

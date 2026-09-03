@@ -7,7 +7,7 @@ function Hero() {
                 <h1>Shop online for stylish<br></br> fashion wear </h1>
                 
             </div>
-            <img src='https://images.pexels.com/photos/6627106/pexels-photo-6627106.jpeg?_gl=1*fskjw8*_ga*MTAwODYxMjcwLjE3ODgyMTIzMzg.*_ga_8JE65Q40S6*czE3ODgyMTIzMzgkbzEkZzEkdDE3ODgyMTMwNDEkajExJGwwJGgw' alt='Product background image'></img>
+            <img src='https://images.unsplash.com/photo-1724184888115-e76e42f53dcc?q=80&w=1332&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' alt='Product background image'></img>
         </div>
     )
 }

@@ -8,13 +8,13 @@ from django.contrib.auth import get_user_model, authenticate
 User = get_user_model()
 
 # Create your views here.
-class RegisterViewSet(viewsets.ModelViewSet):
+class RegisterViewSet(viewsets.ViewSet):
     permission_classes = [permissions.AllowAny]
     queryset = User.objects.all()
     serializer_class = RegisterSerializer
 
-    def create(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
+    def create(self, request):
+        serializer = self.serializer_class(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)

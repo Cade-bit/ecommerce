@@ -1,13 +1,29 @@
 import { Link } from "react-router";
-import Button from "../../Button/Button";
+import Button from "../../Button/Navigational/Button";
 import { Controller, useForm } from "react-hook-form";
 import styles from "./LoginForm.module.css";
 import { useState } from "react";
 import AxiosInstance from "../../Axios/AxiosInstance";
+import { useNavigate } from "react-router";
 
-function LoginForm({ name, onClick }) {
-  const {handleSubmit, control} = useForm()
+type LoginFormData = {
+  email: string;
+  password: string;
+}
+
+type LoginFormProps = {
+  name: string;
+}
+
+function LoginForm({ name, onClick }: LoginFormProps) {
+  const {handleSubmit, control} = useForm<LoginFormData>({
+    defaultValues: {
+      email: "",
+      password: "",
+    }
+  })
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const submission = (data) => {
     AxiosInstance.post(`login/`, {
@@ -84,15 +100,15 @@ function LoginForm({ name, onClick }) {
     
   <form onSubmit={handleSubmit(submission)} className={styles.logInForm}>
       <div>
-        <input name={"email"} control={control} placeholder="example123@gmail.com"></input>
+        <input name={"email"} placeholder="example123@gmail.com"></input>
       </div>
       <div>
-        <input type="password" name={"password"} control={control} placeholder="Enter password"></input>
+        <input type="password" name={"password"} placeholder="Enter password"></input>
         <Link to="#"><p>Forgot password?</p></Link>
       </div>
       <div className={styles.loginCta}>
         <Button type='formButton' onClick={handleFormSubmit}>Login</Button>
-        <p>Don't have an account??<Link to="/register"> Register today</Link></p>
+        <p>Don't have an account??<Link to="/register" className={styles.registerA}> <strong>Register</strong></Link></p>
       </div>
     </form>
 

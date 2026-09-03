@@ -19,6 +19,7 @@
     width: 100%;
     max-width: 30rem;
     border-radius: var(--nav-border-radius);
+    object-fit: cover;
 }
 
 .loginContainer {
@@ -27,7 +28,7 @@
 }
 
 .title p {
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .form {

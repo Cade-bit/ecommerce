@@ -29,3 +29,7 @@
     justify-content: center;
     margin-top: 2rem;
 }
+
+.registerA:hover {
+    color: var(--color-accent)
+}
