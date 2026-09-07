@@ -90,12 +90,9 @@ function RegisterForm({onSubmit}) {
               I agree to the Terms of service and Privacy policy
             </label>
             <p>
-              View the
-              <Link to="#">
+              View the <Link to="#">
                 <strong>Terms of service</strong>
-              </Link>
-              and the
-              <Link to="#">
+              </Link> and the <Link to="#">
                 <strong>Privacy policy</strong>
               </Link>
             </p>

@@ -2,7 +2,12 @@ import ProductList from "../components/Product/ProductList/ProductList"
 import styles from './ProductsPage.module.css'
 
 
-function Products({products, error}) {
+type ProductsProps = {
+    products: [],
+    error: string | null
+}
+
+function Products({products, error}: ProductsProps) {
 
     return (
         <main className={styles.main}>

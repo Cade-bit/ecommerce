@@ -2,5 +2,8 @@
     display: flex;
     flex-flow: column;
     align-items: center;
-    background-color: var(--color-background);
+}
+
+.bentoSection {
+    margin-top: 4rem;
 }
