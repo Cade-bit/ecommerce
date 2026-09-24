@@ -50,7 +50,7 @@
 body {
   /* position: relative; */
   font-family: var(--primary-font);
-  background-color: var(--color-border);
+  background-color: var(--color-main-border);
 }
 
 body a {

@@ -13,7 +13,7 @@ function ProductItem({ product }) {
                 <p>{product.description}</p>
             </div>
             <div className={styles.price}>
-                <p>£{product.price}</p>
+                <b><p>£{product.price}</p></b>
             </div>
             </div>
             

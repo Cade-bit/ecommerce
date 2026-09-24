@@ -2,18 +2,20 @@
     display: grid;
     align-items: center;
     justify-content: center;
-    background-color: white;
+    width: fit-content;
+    /* background-color: white; */
     padding-bottom: 2rem;
     /* border-radius: var(--nav-border-radius); */
+}
+
+.productCard:hover {
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
 .productInfo {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    margin: 1rem 1rem 0 1rem;
-}
-
-.productTitle {
+    margin: 0 1rem 0 1rem;
 }
 
 .price {
@@ -24,6 +26,7 @@
 
 
 .productCard img {
+    object-fit: contain;
     height: 30vw;
     width: 25rem;
 }
