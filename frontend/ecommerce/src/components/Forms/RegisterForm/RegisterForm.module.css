@@ -19,6 +19,12 @@
     border-radius: var(--button-border-radius);
 }
 
+.errorMessage {
+    color: var(--color-error);
+    
+}
+
+
 .registerForm input:focus {
     border-color: var(--color-accent);
 }
