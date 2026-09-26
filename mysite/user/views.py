@@ -4,6 +4,7 @@ from .serializers import *
 from .models import *
 from rest_framework.response import Response
 from knox.models import AuthToken
+from rest_framework_simplejwt.authentication import JWTAuthentication
 from django.contrib.auth import get_user_model, authenticate
 User = get_user_model()
 
@@ -24,6 +25,7 @@ class RegisterViewSet(viewsets.ViewSet):
 
 class LoginViewSet(viewsets.ViewSet):
     permission_classes = [permissions.AllowAny]
+    authentication_classes = [JWTAuthentication]
     serializer_class = LoginSerializer
 
     def create(self, request):
