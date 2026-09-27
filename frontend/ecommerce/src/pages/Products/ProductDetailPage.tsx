@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router"
+import styles from './ProductDetailPage.module.css'
 
 type Product = {
     product_name: string
@@ -20,7 +21,7 @@ function ProductDetailPage() {
     useEffect(() => {
         async function fetchProduct() {
             try {
-                const res = await fetch(`http://127.0.0.1:8000/api/products/${id}/`)
+                const res = await fetch(`http://127.0.0.1:8000/api/catalog/products/${id}/`)
                 if (!res.ok) {
                     throw new Error("Product not found")
                 }
@@ -46,7 +47,7 @@ function ProductDetailPage() {
 
     return (
         <div>
-            <a onClick={() => navigate(-1)}>Back to products</a>
+            <a  className={styles.backLink} onClick={() => navigate(-1)}>Back to products</a>
             <img src={product.image} alt={product.product_name} />
             <h1>{product.product_name}</h1>
             <p>£{product.price}</p>

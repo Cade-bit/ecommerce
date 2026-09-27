@@ -4,34 +4,24 @@ from django.utils import timezone
 
 # Create your models here.
 class Category(models.Model):
-    category_name = models.CharField(max_length=100, db_index=True, unique=True)
+    name = models.CharField(max_length=100, db_index=True,)
     slug = models.SlugField(max_length=100, unique=True)
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='children', on_delete=models.CASCADE)
+    is_active = models.BooleanField(default=True)
+    nav_order = models.PositiveIntegerField(default=0)
+    def __str__(self):
+        return self.name
 
     class Meta:
         db_table = 'catalog_category'
 
-    def __str__(self):
-        return self.category_name
-
-
-class SubCategory(models.Model):
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='subcategories')
-    sub_category_name = models.CharField(max_length=100, db_index=True)
-    slug = models.SlugField(max_length=100, unique=True)
-
-    class Meta:
-        db_table = 'catalog_sub_category'
-
-    def __str__(self):
-        return f'{self.sub_category_name} ({self.category.category_name})'
-
- # Add size and color options
+ # Add size and color options later
  #------------------------------------> Product model
 class Product(models.Model):
     product_name = models.CharField(max_length=100, db_index=True, null=True)
     price = models.DecimalField(max_digits=10, decimal_places=2, null=True)
     quantity = models.PositiveIntegerField(null=True)
-    sub_categories = models.ManyToManyField(Category, related_name='sub_categories')
+    category = models.ForeignKey('Category', on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(max_length=500, db_index=True, null=True)
     delivery_info = models.TextField(max_length=500, db_index=True, null=True)
     image = models.ImageField(upload_to='uploads/products/', null=True)

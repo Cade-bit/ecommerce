@@ -1,11 +1,19 @@
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .logInForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 20rem;
     height: 20rem;
+    margin-top: -4rem;
     padding: var(--button-padding);
-    background-color: white;
+    /* background-color: white; */
 }
 
 .logInForm input {
@@ -17,6 +25,12 @@
     border-width: 2px;
     border-color: var(--color-main-border);
     border-radius: var(--button-border-radius);
+}
+
+.errorMessage {
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    z-index: 1;
 }
 
 .message {

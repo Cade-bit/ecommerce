@@ -1,4 +1,4 @@
-import ProductList from "../components/Product/ProductList/ProductList"
+import ProductList from "../../components/Product/ProductList/ProductList"
 import styles from './ProductsPage.module.css'
 
 

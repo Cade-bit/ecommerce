@@ -1,6 +1,6 @@
 import styles from "./LogInPage.module.css";
-import loginPhoto from "../assets/loginPhoto.jpg";
-import LoginForm from "../components/Forms/LogInForm/LoginForm";
+import loginPhoto from "../../assets/loginPhoto.jpg";
+import LoginForm from "../../components/Forms/LogInForm/LoginForm";
 
 function LogInPage() {
   return (

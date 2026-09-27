@@ -1,33 +1,58 @@
-import { BrowserRouter, Route, Routes } from "react-router";
-import { useEffect, useState } from "react";
-import HomePage from "./pages/HomePage";
-import Products from "./pages/ProductsPage";
+import HomePage from "./pages//Home/HomePage";
+import Products from "./pages/Products/ProductsPage";
 import NavigationLayout from "./components/Navigation/NavigationLayout";
 import PageNotFound from "./pages/PageNotFound";
-import LogInPage from "./pages/LogInPage";
-import RegisterPage from "./pages/RegisterPage";
-import ContactPage from "./pages/ContactPage";
-import ProductDetailPage from "./pages/ProductDetailPage";
-import TermsOfServicePage from "./pages/TermsOfServicePage";
-import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
+import LogInPage from "./pages/Login/LogInPage";
+import RegisterPage from "./pages/Register/RegisterPage";
+import ContactPage from "./pages/Contact/ContactPage";
+import ProductDetailPage from "./pages/Products/ProductDetailPage";
+import TermsOfServicePage from "./pages/Legal/TermsOfServicePage";
+import PrivacyPolicyPage from "./pages/Legal/PrivacyPolicyPage";
 
+import { BrowserRouter, Route, Routes, useParams } from "react-router";
+import { useEffect, useState } from "react";
+import AxiosInstance from "./components/Axios/AxiosInstance";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState("");
+  const { category } = useParams();
 
-  useEffect(function () {
-    async function fetchProducts() {
-      try {
-        const res = await fetch("http://127.0.0.1:8000/api/catalog/products/");
+  // const baseUrl = 'http://127.0.0.1:8000/'
 
-        if (!res.ok)
-          throw new Error("Something went wrong with fetching the products");
-        const data = await res.json();
-        setProducts(data);
-        setError("");
-        console.log(data);
-      } catch (err) {
+  // useEffect(function () {
+  //   async function fetchProducts() {
+  //     try {
+  //       const res = await fetch(`${baseUrl}/api/catalog/products/`);
+
+  //       if (!res.ok)
+  //         throw new Error("Something went wrong with fetching the products");
+  //       const data = await res.json();
+  //       setProducts(data);
+  //       setError("");
+  //       console.log(data);
+  //     } catch (err) {
+  //       if (!(err instanceof Error && err.name === "AbortError")) {
+  //         const message =
+  //           err instanceof Error ? err.message : "Unable to fetch products";
+  //         setError(message);
+  //         console.error(message);
+  //       }
+  //     }
+  //   }
+  //   fetchProducts();
+  // }, []);
+
+  useEffect(
+    function() {
+      async function fetchProducts() {
+        try {
+          const res = await AxiosInstance.get("api/catalog/products");
+          const filtered = res.data.filter(
+            (product) => product.category === category
+          );
+          setProducts(filtered);
+        } catch (err) {
         if (!(err instanceof Error && err.name === "AbortError")) {
           const message =
             err instanceof Error ? err.message : "Unable to fetch products";
@@ -35,9 +60,23 @@ function App() {
           console.error(message);
         }
       }
-    }
-    fetchProducts();
-  }, []);
+      }
+      fetchProducts();
+    }, [category])
+
+  // useEffect(
+  //   function () {
+  //     async function fetchProducts() {
+  //       try {
+  //         const res = await AxiosInstance.get("/api/catalog/products");
+  //         const filtered = res.data.filter(
+  //           (product) => product.category === category
+  //           );
+  //           setProducts(filtered);
+  //           }
+  //           };
+  //     fetchProducts();
+  //   }, [category])
 
   return (
     <>
