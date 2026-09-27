@@ -1,0 +1,24 @@
+$kind: http-request
+method: POST
+url: '{{base_url}}/api/catalog/token/'
+order: 10000
+headers:
+  - key: Content-Type
+    value: application/json
+body:
+  type: json
+  content: |-
+    {
+      "email": "user@example.com",
+      "password": "change-me"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Catalog token request succeeds", function () {
+        pm.response.to.have.status(200);
+      });
+      const data = pm.response.json();
+      if (data.access) pm.collectionVariables.set("access_token", data.access);
+      if (data.refresh) pm.collectionVariables.set("refresh_token", data.refresh);

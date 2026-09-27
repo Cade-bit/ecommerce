@@ -1,0 +1,12 @@
+$kind: collection
+name: Ecommerce API
+description: API requests discovered from the Django ecommerce codebase.
+variables:
+  - key: base_url
+    value: 'http://127.0.0.1:8000'
+  - key: access_token
+    value: ''
+  - key: refresh_token
+    value: ''
+  - key: product_id
+    value: '1'

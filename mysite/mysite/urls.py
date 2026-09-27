@@ -21,15 +21,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('catalog.urls', namespace='catalog')),
-    path('', include('user.urls', namespace='user')),
-    path('', include('shipping.urls', namespace='shipping')),
-    path('', include('payments.urls', namespace='payments')),
-    path('', include('orders.urls', namespace='orders')),
-    path('', include('core.urls', namespace='core')),
-    path('', include('cart.urls', namespace='cart')),
-
-    path('api/auth/', include('knox.urls')),
+    path('api/catalog/', include('catalog.urls', namespace='catalog')),
+    path('api/user/', include('user.urls', namespace='user')),
+    path('api/shipping/', include('shipping.urls', namespace='shipping')),
+    path('api/payments/', include('payments.urls', namespace='payments')),
+    path('api/orders/', include('orders.urls', namespace='orders')),
+    path('api/core/', include('core.urls', namespace='core')),
+    path('api/cart/', include('cart.urls', namespace='cart')),
 ]
 
 urlpatterns += [

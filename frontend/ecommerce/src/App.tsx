@@ -19,7 +19,7 @@ function App() {
   useEffect(function () {
     async function fetchProducts() {
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/products/");
+        const res = await fetch("http://127.0.0.1:8000/api/catalog/products/");
 
         if (!res.ok)
           throw new Error("Something went wrong with fetching the products");

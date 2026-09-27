@@ -1,0 +1,14 @@
+$kind: http-request
+method: GET
+url: '{{base_url}}/api/catalog/products/'
+order: 4000
+headers:
+  - key: Authorization
+    value: 'Bearer {{access_token}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Products are returned", function () {
+        pm.response.to.have.status(200);
+      });

@@ -1,0 +1,15 @@
+$kind: http-request
+name: http://127.0.0.1:8000/api/user/token/
+description: ""
+url: http://127.0.0.1:8000/api/user/token/
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \    \"email\": \"cade.mathurin245@gmail.com\",\r
+
+    \    \"password\": \"superuser\"\r
+
+    }"
+order: 991476263684387

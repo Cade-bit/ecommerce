@@ -1,0 +1,17 @@
+$kind: http-request
+method: DELETE
+url: '{{base_url}}/api/catalog/products/:product_id/'
+order: 9000
+pathVariables:
+  - key: product_id
+    value: '{{product_id}}'
+headers:
+  - key: Authorization
+    value: 'Bearer {{access_token}}'
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Product is deleted", function () {
+        pm.response.to.have.status(204);
+      });

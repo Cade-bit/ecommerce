@@ -1,0 +1,32 @@
+$kind: http-request
+method: PUT
+url: '{{base_url}}/api/catalog/products/:product_id/'
+order: 7000
+pathVariables:
+  - key: product_id
+    value: '{{product_id}}'
+headers:
+  - key: Content-Type
+    value: application/json
+  - key: Authorization
+    value: 'Bearer {{access_token}}'
+body:
+  type: json
+  content: |-
+    {
+      "product_name": "Updated Product",
+      "description": "Updated description",
+      "price": "24.99",
+      "quantity": 12,
+      "image": null,
+      "sub_categories": [],
+      "delivery_info": "Ships in 2-4 business days",
+      "notes": "Updated internal note"
+    }
+scripts:
+  - type: afterResponse
+    language: text/javascript
+    code: |-
+      pm.test("Product is updated", function () {
+        pm.response.to.have.status(200);
+      });

@@ -34,7 +34,7 @@ function RegisterForm() {
       setMessage("Registration successful! Please log in.");
       navigate("/login");
     } catch (error) {
-      if (error.response) {
+      if (error.resonse) {
         setMessage(JSON.stringify(error.response.data));
       } else {
         setMessage("An error occurred. Please try again.");
@@ -47,7 +47,7 @@ function RegisterForm() {
     <form onSubmit={handleSubmit(onSubmit)} className={styles.registerForm}>
       <div>
         <input type="email" {...register("email", { required: "Email is required" })} placeholder="example123@gmail.com" />
-        {errors.email && <p style={{ color: "red" }} className={styles.errorMessage}>{errors.email.message}</p>}
+        {errors.email && <p className={styles.errorMessage}>{errors.email.message}</p>}
       </div>
       <div>
         <input type="text" {...register("first_name", { required: "First name is required" })} placeholder="First Name" />
