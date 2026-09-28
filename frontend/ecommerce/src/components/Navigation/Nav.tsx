@@ -14,6 +14,12 @@ function Nav() {
                     <NavLink to="/products">Products</NavLink>
                 </li>
                 <li>
+                    <NavLink to="/products/category/women">Women</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/products/category/women">Men</NavLink>
+                </li>
+                <li>
                     <NavLink to="/contact">Contact</NavLink>
                 </li>
                 <Link to="/login">
