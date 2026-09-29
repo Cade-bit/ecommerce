@@ -16,3 +16,39 @@
 .navList a:hover {
     color: var(--primary-hover);
 }
+
+.dropDown {
+    overflow: hidden;
+}
+
+.dropDownContent {
+    display: none;
+    /* backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px); */
+    position: absolute;
+    padding: var(--nav-padding);
+    width: 100%;
+    left: 0;
+    top: 5rem;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    border-radius: var(--nav-border-radius);
+    background-color: var(--nav-color);
+    z-index: 1100;
+}
+
+.dropDownContent .dropDownHeader {
+    padding: 16px;
+}
+
+.dropDown:hover .dropDownContent{
+    display: block;
+}
+
+.column {
+    display: block;
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+    text-decoration: none;
+    text-align: left;
+}

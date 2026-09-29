@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Product
+from .models import Product, Category
+
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,3 +15,14 @@ class BulkDeleteSerializer(serializers.ModelSerializer):
        child=serializers.IntegerField(),
         allow_empty=False
         )
+
+class ChildCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ('id', 'name', 'slug')
+
+class CategorySerializer(serializers.ModelSerializer):
+    children = ChildCategorySerializer(many=True, read_only=True)
+    class Meta:
+        model = Category
+        fields = ('id', 'name', 'slug', 'children')

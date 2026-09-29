@@ -7,6 +7,7 @@ type ProductsProps = {
     error: string | null
 }
 
+
 function Products({products, error}: ProductsProps) {
 
     return (
