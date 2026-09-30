@@ -5,7 +5,7 @@ function Hero() {
     return (
         <div className={styles.hero}>
             <div className={styles.heroText}>
-                <h1>Shop online for stylish<br></br> fashion wear </h1>
+                <h1>Curated Everyday Goods <br></br> & Essentials | [Brand Name] </h1>
                 
             </div>
             <video src={HeroVideo} autoPlay muted loop />

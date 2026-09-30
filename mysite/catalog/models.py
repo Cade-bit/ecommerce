@@ -3,6 +3,9 @@ from django.db.models import Model
 from django.utils import timezone
 
 # Create your models here.
+# PLEASE NOTE THAT IF DATABASE IS DOWN THEN THE MAIN FUNCTION OF THE WEBSITE WILL BE DISRUPTED
+
+
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True,)
     slug = models.SlugField(max_length=100, unique=True)

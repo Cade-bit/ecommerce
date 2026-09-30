@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router'
 import styles from './Nav.module.css'
 import Button from '../Button/Navigational/Button'
+import { useState } from 'react';
 
 type Category = {
     categories: {
@@ -11,7 +12,15 @@ type Category = {
 };
 
 
+
 function Nav({categories}: Category) {
+  const [selectedId, setSelectedId] = useState(null);
+
+  const isSelected = categories.map((category) => category.id).includes(selectedId);
+
+  function handleClicked(id) {
+    setSelectedId((selectedId) => (id === selectedId ? null : id))
+  }
     return (
       <div>
         <ul className={styles.navList}>
@@ -20,31 +29,21 @@ function Nav({categories}: Category) {
           </li>
           {categories?.map((category) => (
             <div className={styles.dropDown} key={category.id} category={category}>
-              <NavLink to="">{category.name}</NavLink>
-              <div className={styles.dropDownContent}>
+              <li onClick={handleClicked}>{category.name}</li>
+              <div className={`styles.dropDownContent ${isSelected} ? "dropDownClicked" : "" `}> {/*{styles.dropDownContent}*/}
                 <div className={styles.dropDownHeader}>
                     <h2>Shop Trendy {category.name}'s Fashion</h2>
                 </div>
-                <div className={styles.row}>
-                    <div className={styles.column}>
-                        <h3>test</h3>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
+                {category.children.length > 0 && (
+                  <div className={styles.row}>
+                    {category.children.map((child) => (
+                      <div className={styles.column}>
+                        <NavLink to=""><h3 key={child.id}>{child.name}</h3></NavLink>
+                        <NavLink to="">{child.name}</NavLink>
                     </div>
-                    <div className={styles.column}>
-                        <h3>test</h3>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
-                    </div>
-                    <div className={styles.column}>
-                        <h3>test</h3>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
-                        <NavLink to="">test</NavLink>
-                    </div>
+                    ))}
                 </div>
+                )}
               </div>
             </div>
           ))}

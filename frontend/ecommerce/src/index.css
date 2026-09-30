@@ -10,7 +10,8 @@
   --color-error: #CD1C18;
   --color-dark: #252525;
   --color-white: white;
-  --nav-color: rgba(255, 255, 255, 0.22);
+  --nav-color: rgba(42, 58, 70, 0.22);
+  /* --nav-color: rgba(255, 255, 255, 0.22); */
 
   --primary-hover: #646464;
   --accent-hover: #54667a;

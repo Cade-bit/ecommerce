@@ -69,7 +69,7 @@ function App() {
       }
     }
     fetchCategories();
-  }, [])
+  }, [categories])
 
     /* useEffect(
     function() {

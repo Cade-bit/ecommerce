@@ -8,13 +8,19 @@
     font-weight: 400;
 }
 
-.navList a,
+.navList a, li,
 .navList a:visited {
-    color: var(--color-dark);
+    /* color: var(--color-dark); */
+    color: white;
+    cursor: pointer;
 }
 
 .navList a:hover {
-    color: var(--primary-hover);
+    color: #d9e3e8;
+}
+
+.navList li:hover {
+    color: #d9e3e8;
 }
 
 .dropDown {
@@ -23,8 +29,8 @@
 
 .dropDownContent {
     display: none;
-    /* backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px); */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     position: absolute;
     padding: var(--nav-padding);
     width: 100%;
@@ -33,14 +39,24 @@
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     border-radius: var(--nav-border-radius);
     background-color: var(--nav-color);
-    z-index: 1100;
+    z-index: 1000;
 }
 
+/* .dropDownContent::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+} */
+
 .dropDownContent .dropDownHeader {
+    color: white;
     padding: 16px;
 }
 
-.dropDown:hover .dropDownContent{
+.dropDownClicked{
     display: block;
 }
 
@@ -51,4 +67,17 @@
     padding: 10px;
     text-decoration: none;
     text-align: left;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+@media (max-width: 768px) {
+    .column {
+        width: 100%;
+        height: auto;
+    }
 }
