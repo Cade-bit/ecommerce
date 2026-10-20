@@ -37,8 +37,8 @@ function Nav({categories}: Category) {
                 {category.children.length > 0 && (
                   <div className={styles.row}>
                     {category.children.map((child) => (
-                      <div className={styles.column}>
-                        <NavLink to=""><h3 key={child.id}>{child.name}</h3></NavLink>
+                      <div className={styles.column} key={child.id}>
+                        <NavLink to=""><h3>{child.name}</h3></NavLink>
                         <NavLink to="">{child.name}</NavLink>
                     </div>
                     ))}
