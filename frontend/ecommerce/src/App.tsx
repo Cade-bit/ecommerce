@@ -24,7 +24,7 @@ function App() {
   const [error, setError] = useState("");
   const [catError, setCatError] = useState("");
 
-  const baseUrl = 'http://127.0.0.1:8000/'
+  const baseUrl = 'http://127.0.0.1:8000'
 
   useEffect(function () {
     async function fetchProducts() {

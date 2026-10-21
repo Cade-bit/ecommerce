@@ -1,57 +1,50 @@
 import { Link, NavLink } from 'react-router'
 import styles from './Nav.module.css'
 import Button from '../Button/Navigational/Button'
-import { useState } from 'react';
 
-type Category = {
-    categories: {
-        id: number;
-        name: string;
-        slug: string;
-    }[];
+export type CategoryItem = {
+  id: number;
+  name: string;
+  slug: string;
+  children: {
+    id: number;
+    name: string;
+    slug: string;
+  }[];
 };
 
+type NavProps = {
+  categories: CategoryItem[];
+  selectedCategoryId: number | null;
+  onCategoryClick: (id: number) => void;
+};
 
-
-function Nav({categories}: Category) {
-  const [selectedId, setSelectedId] = useState(null);
-
-  const isSelected = categories.map((category) => category.id).includes(selectedId);
-
-  function handleClicked(id) {
-    setSelectedId((selectedId) => (id === selectedId ? null : id))
-  }
+function Nav({ categories, selectedCategoryId, onCategoryClick }: NavProps) {
     return (
       <div>
         <ul className={styles.navList}>
           <li>
             <NavLink to="/">Home</NavLink>
           </li>
+          {/* Displaying top level categories */}
           {categories?.map((category) => (
-            <div className={styles.dropDown} key={category.id} category={category}>
-              <li onClick={handleClicked}>{category.name}</li>
-              <div className={`styles.dropDownContent ${isSelected} ? "dropDownClicked" : "" `}> {/*{styles.dropDownContent}*/}
-                <div className={styles.dropDownHeader}>
-                    <h2>Shop Trendy {category.name}'s Fashion</h2>
-                </div>
-                {category.children.length > 0 && (
-                  <div className={styles.row}>
-                    {category.children.map((child) => (
-                      <div className={styles.column} key={child.id}>
-                        <NavLink to=""><h3>{child.name}</h3></NavLink>
-                        <NavLink to="">{child.name}</NavLink>
-                    </div>
-                    ))}
-                </div>
-                )}
-              </div>
-            </div>
+            <li key={category.id}>
+              <p
+                // type="button" used to be a button
+                className={styles.categoryTrigger}
+                aria-expanded={selectedCategoryId === category.id}
+                aria-controls="category-mega-menu"
+                onClick={() => onCategoryClick(category.id)}
+              >
+                {category.name}
+              </p>
+            </li>
           ))}
           <li>
             <NavLink to="/contact">Contact</NavLink>
           </li>
           <Link to="/login">
-            <Button>Login</Button>
+            <Button type="primary">Login</Button>
           </Link>
         </ul>
       </div>

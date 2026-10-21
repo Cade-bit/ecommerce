@@ -21,8 +21,15 @@ class ChildCategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ('id', 'name', 'slug')
 
+
 class CategorySerializer(serializers.ModelSerializer):
-    children = ChildCategorySerializer(many=True, read_only=True)
+    children = serializers.SerializerMethodField()
+
     class Meta:
         model = Category
         fields = ('id', 'name', 'slug', 'children')
+
+    def get_children(self, obj):
+        child_categories = obj.children.filter(is_active=True).order_by('nav_order')
+
+        return CategorySerializer(child_categories, many=True, context=self.context,).data

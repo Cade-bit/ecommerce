@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 from .models import Product, Category
-from .serializers import ProductSerializer, BulkDeleteSerializer, CategorySerializer
+from .serializers import ProductSerializer, BulkDeleteSerializer, CategorySerializer, ChildCategorySerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -20,3 +20,4 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Category.objects.filter(parent=None, is_active=True).order_by('nav_order')
+    
