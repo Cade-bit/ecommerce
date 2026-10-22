@@ -38,10 +38,12 @@ function NavigationLayout({ categories }: NavigationLayoutProps) {
                         <div className={styles.row}>
                             {selectedCategory.children.map((child) => (
                                 <div className={styles.column} key={child.id}>
-                                    <NavLink to=""><h3>{child.name}</h3></NavLink>
+                                    <NavLink to={`/categories/${child.slug}`}>
+                                        <h3>{child.name}</h3>
+                                    </NavLink>
                                     {child.children.map((grandChild) => (
                                         <div className={styles.grandChild} key={grandChild.id}>
-                                        <NavLink to="">
+                                        <NavLink to={`/categories/${grandChild.slug}`}>
                                             {grandChild.name}
                                         </NavLink>
                                         </div>

@@ -6,8 +6,11 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ('id', 'product_name', 'description', 'price', 'quantity' , 'image', 'category', 'delivery_info', 'notes')
-
-
+        lookup_field = 'slug'
+        extra_kwargs = {
+            'url' : {
+                'lookup' : 'slug'}
+        }
 
 
 class BulkDeleteSerializer(serializers.ModelSerializer):

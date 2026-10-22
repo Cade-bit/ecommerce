@@ -8,9 +8,11 @@ import ContactPage from "./pages/Contact/ContactPage";
 import ProductDetailPage from "./pages/Products/ProductDetailPage";
 import TermsOfServicePage from "./pages/Legal/TermsOfServicePage";
 import PrivacyPolicyPage from "./pages/Legal/PrivacyPolicyPage";
+import CategoryPage from "./pages/catalog/categories/categoryPage";
 
 import { BrowserRouter, Route, Routes } from "react-router";
 import { useEffect, useState } from "react";
+import type { CategoryItem } from "./components/Navigation/Nav";
 // import AxiosInstance from "./components/Axios/AxiosInstance";
 
 /* Notes to build the categorical navbar and view of products
@@ -20,9 +22,10 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState<CategoryItem[]>([]);
   const [error, setError] = useState("");
   const [catError, setCatError] = useState("");
+  const [categoriesLoading, setCategoriesLoading] = useState(true);
 
   const baseUrl = 'http://127.0.0.1:8000'
 
@@ -58,12 +61,14 @@ function App() {
           throw new Error("Something went wrong fethcing the categories");
         const data = await res.json();
         setCategories(data);
+        setCategoriesLoading(false);
         console.log(data);
       } catch (err) {
         if (!(err instanceof Error && err.name === "AbortError")) {
           const message = 
           err instanceof Error ? err.message : "Unable to fetch catalog";
           setCatError(message);
+          setCategoriesLoading(false);
           console.error(message);
         }
       }
@@ -105,8 +110,8 @@ function App() {
             path="/products"
             element={<Products products={products} error={error} />}
           ></Route>
-          <Route path="/${category.name}/${categories.slug}" element={<Products categories={categories} catError={catError} />}></Route>
-          <Route path="/products/:id" element={<ProductDetailPage />}></Route>
+          <Route path="/categories/:slug" element={<CategoryPage categories={categories} catError={catError} categoriesLoading={categoriesLoading} />}></Route>
+          <Route path="/products/:slug" element={<ProductDetailPage />}></Route>
           <Route path="/contact" element={<ContactPage />}></Route>
           <Route path="/login" element={<LogInPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
