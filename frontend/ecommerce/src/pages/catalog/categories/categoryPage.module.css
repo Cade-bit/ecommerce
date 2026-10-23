@@ -1,0 +1,19 @@
+
+
+.hero {
+    margin-top: 9rem;
+    height: 50vh;
+    width: 100vw;
+    background-color: var(--color-background);
+}
+
+.productsList {
+    margin: 4rem;
+}
+
+.listCount {
+    margin-bottom: 2rem;
+}
+
+
+

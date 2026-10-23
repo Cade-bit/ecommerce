@@ -106,11 +106,15 @@ function App() {
         <NavigationLayout categories={categories} catError={catError}/>
         <Routes>
           <Route index element={<HomePage />}></Route>
-          <Route
+
+          {/* Old products page that displays all products in the database */}
+          {/* <Route
             path="/products"
             element={<Products products={products} error={error} />}
-          ></Route>
-          <Route path="/categories/:slug" element={<CategoryPage categories={categories} catError={catError} categoriesLoading={categoriesLoading} />}></Route>
+          ></Route> */}
+
+          
+          <Route path="/categories/:slug" element={<CategoryPage categories={categories} catError={catError} categoriesLoading={categoriesLoading} products={products} error={error} />}></Route>
           <Route path="/products/:slug" element={<ProductDetailPage />}></Route>
           <Route path="/contact" element={<ContactPage />}></Route>
           <Route path="/login" element={<LogInPage />}></Route>

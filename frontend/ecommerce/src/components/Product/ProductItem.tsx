@@ -4,7 +4,7 @@ import styles from './ProductItem.module.css'
 function ProductItem({ product }) {
     return (
         <li className={styles.productCard}>
-            <Link to={`/products/${product.id}`}>
+            <Link to={"/products/:slug"}>
                 <img src={product.image} alt={product.product_name}/>
             </Link>
             <div className={styles.productInfo}>

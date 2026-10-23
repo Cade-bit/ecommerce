@@ -12,14 +12,26 @@ type ProductListProps = {
     }[];
 };
 
-function ProductList({products}: ProductListProps) {
+function ProductList({ categoryProducts }: ProductListProps) {
     return (
         <ul className={styles.productList}>
-                    {products?.map((product) => (
-                        <Product key={product.id} product={product} />
-                    ))}
-                </ul>
+            {categoryProducts.map((product) => (
+                <Product  key={product.id} product={product} />
+            ))}
+            </ul>
     )
 }
 
 export default ProductList
+
+
+
+
+
+// Old products display that maps through the fetchProducts json data
+
+// <ul className={styles.productList}>
+//             {products?.map((product) => (
+//                 <Product key={product.id} product={product} />
+//             ))}
+//         </ul>
